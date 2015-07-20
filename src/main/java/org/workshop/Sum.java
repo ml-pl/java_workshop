@@ -30,7 +30,12 @@ public class Sum {
      * @return result of summing
      * @throws OperationNotSupportedException when list is null
      */
-    public int sumAList(List<Integer> toSum){
-        throw new NotImplementedException();
+    public int sumAList(List<Integer> toSum) throws OperationNotSupportedException {
+        if(toSum == null) throw new OperationNotSupportedException();
+        int sum = 0;
+        for(int e : toSum){
+            sum += e;
+        }
+        return sum;
     }
 }

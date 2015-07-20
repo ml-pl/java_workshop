@@ -3,6 +3,7 @@ package org.workshop;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.naming.OperationNotSupportedException;
+import java.util.List;
 
 public class Sum {
 
@@ -13,7 +14,23 @@ public class Sum {
      * @return result of summing
      * @throws OperationNotSupportedException when rangeMax is lower than 1
      */
-    public int sumFrom1To(int rangeMax){
+    public int sumFrom1To(int rangeMax) throws OperationNotSupportedException {
+        if(rangeMax <= 0) throw new OperationNotSupportedException();
+        int sum = 0;
+        for(int i = 0; i <= rangeMax; i++){
+            sum += i;
+        }
+        return sum;
+    }
+
+    /**
+     * Method should sum all integers in a list.
+     * Consider using foreach loop.
+     * @param toSum list of integers to be summed up.
+     * @return result of summing
+     * @throws OperationNotSupportedException when list is null
+     */
+    public int sumAList(List<Integer> toSum){
         throw new NotImplementedException();
     }
 }

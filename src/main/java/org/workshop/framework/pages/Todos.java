@@ -19,6 +19,12 @@ public class Todos {
     @FindBy(css = "li span")
     private List<WebElement> todos;
 
+    @FindBy(css = "input[type='submit']")
+    private WebElement addButton;
+
+    @FindBy(css = "input[type='text']")
+    private WebElement descriptionText;
+
     public static Todos openTodos(WebDriver driver) {
         driver.get(TODOS_URL);
         return PageFactory.initElements(driver, Todos.class);
@@ -29,14 +35,17 @@ public class Todos {
     }
 
     public Todos addTodo(String description){
-        throw new NotImplementedException();
+        descriptionText.clear();
+        descriptionText.sendKeys(description);
+        addButton.click();
+        return this;
     }
 
     /**
      * This method should verify both number of items showing on page and the number of items shown above list items.
      */
-    public void verifyCountOfTodos(int expected) {
-        //assertThat(numberOfTodos(), equalTo(expected));
-        throw new NotImplementedException();
+    public Todos verifyCountOfTodos(int expected) {
+        assertThat(numberOfTodos(), equalTo(expected));
+        return this;
     }
 }

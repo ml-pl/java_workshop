@@ -33,6 +33,7 @@ public class TodosTest {
     @Test
     public void addTodoAndVerifyThatNumberOfTodosIncreased(){
         Todos.openTodos(driver)
+                .verifyCountOfTodos(2)
                 .addTodo("Some description")
                 .verifyCountOfTodos(3);
     }

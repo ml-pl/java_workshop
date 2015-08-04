@@ -1,5 +1,6 @@
 package org.workshop;
 
+import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 
 import javax.naming.OperationNotSupportedException;
@@ -9,6 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.testng.Assert.assertEquals;
 
 public class SumTest {
@@ -56,5 +59,13 @@ public class SumTest {
         sum.sumAList(null);
     }
 
+    @Test
+    public void factorial1(){
+        assertThat(1, equalTo(sum.factorial(1)));
+    }
 
+    @Test
+    public void factorial3(){
+        assertThat(6, equalTo(sum.factorial(3)));
+    }
 }

@@ -38,4 +38,9 @@ public class Sum {
         }
         return sum;
     }
+
+    public int factorial(int range){
+        if(range == 0) return 1;
+        return range * factorial(range - 1);
+    }
 }

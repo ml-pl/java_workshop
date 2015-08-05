@@ -17,8 +17,6 @@ public class MainPage extends Page {
     @FindBy(css = "h2.entry-title a")
     private List<WebElement> posts;
 
-    private WebDriver driver;
-
     public MainPage(WebDriver driver) {
         super(driver);
         driver.get(url);

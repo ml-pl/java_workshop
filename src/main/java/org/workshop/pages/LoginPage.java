@@ -7,8 +7,6 @@ import org.workshop.framework.Page;
 
 public class LoginPage extends Page{
 
-    private WebDriver driver;
-
     @FindBy(id = "user_login")
     private WebElement loginField;
 
@@ -22,13 +20,17 @@ public class LoginPage extends Page{
         super(driver);
     }
 
-
     public LoginPage fillLogin(String login){
         loginField.sendKeys(login);
         return this;
     }
 
     public LoginPage fillPassword(String password){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         passwordField.sendKeys(password);
         return this;
     }

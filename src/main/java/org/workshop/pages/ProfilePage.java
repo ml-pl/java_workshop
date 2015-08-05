@@ -15,8 +15,6 @@ public class ProfilePage extends Page {
     @FindBy(id = "wp-admin-bar-my-account")
     private WebElement logoutLink;
 
-    private WebDriver driver;
-
     public ProfilePage(WebDriver driver) {
         super(driver);
     }

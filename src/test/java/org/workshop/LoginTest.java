@@ -18,5 +18,6 @@ public class LoginTest {
                 .runScenario(new LoginScenario(new Credentials("workshop", "test")))
                 .goToMainPage()
                 .openPost("Witaj, świecie!");
+//                .addComment("text");
     }
 }

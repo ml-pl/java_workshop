@@ -3,9 +3,9 @@ package org.workshop.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.workshop.framework.Page;
 
-public class LoginPage {
+public class LoginPage extends Page{
 
     private WebDriver driver;
 
@@ -19,9 +19,9 @@ public class LoginPage {
     private WebElement submitButton;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
+
 
     public LoginPage fillLogin(String login){
         loginField.sendKeys(login);

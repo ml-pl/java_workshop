@@ -1,5 +1,6 @@
 package org.workshop.framework;
 
-public interface Scenario<In, Out> {
+@FunctionalInterface
+public interface Scenario<In extends Page, Out extends Page> {
     Out run(In in);
 }

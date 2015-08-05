@@ -3,22 +3,31 @@ package org.workshop.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.workshop.framework.Page;
 
-public class ProfilePage {
+import static org.hamcrest.MatcherAssert.assertThat;
+
+public class ProfilePage extends Page {
 
     @FindBy(partialLinkText = "Java Workshop")
     private WebElement mainPageLink;
 
+    @FindBy(id = "wp-admin-bar-my-account")
+    private WebElement logoutLink;
+
     private WebDriver driver;
 
     public ProfilePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public MainPage goToMainPage() {
         mainPageLink.click();
         return new MainPage(driver);
+    }
+
+    public ProfilePage assertLoggedIn() {
+        assertThat("user is logged", logoutLink.isDisplayed());
+        return this;
     }
 }
